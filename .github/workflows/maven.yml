@@ -1,24 +1,33 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Java CI with Maven
+name: Build and Deploy Petclinic 
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
-
+    name: Build Jarfile 
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      -name: Checkout
+     - uses: actions/checkout@v2
+     - name: Set up JDK 1.8
+       uses: actions/setup-java@v1
+       with:
+         java-version: 1.8
+     - name: Build with Maven
+       run: mvn -B package --file pom.xml
+     - name: Docker Image Build
+       id: heroku
+       uses: jctaveras/heroku-deploy@v2.1.1
+       with:
+          email: ${{ secrets.HEROKU_EMAIL }} # your heroku email
+          api_key: ${{ secrets.HEROKU_API_KEY }} # your  heroku api key
+          app_name: ${{ secrets.HEROKU_APP_NAME }} # you aplication name
+          dockerfile_path: '' # set the path to the folder wher the Dokerfile is located
+          options: '' # Docker Build Options
+          formation: '' # Docker Dyno Formation. By default is web 
+    
