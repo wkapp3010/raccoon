@@ -46,7 +46,7 @@ class OwnerController {
 	private VisitRepository visits;
 	
 	// setup memory leak
-	public static List<Double> list = new ArrayList<>();
+	//public static List<Double> list = new ArrayList<>();
 
 	public OwnerController(OwnerRepository clinicService, VisitRepository visits) {
 		this.owners = clinicService;
@@ -145,9 +145,11 @@ class OwnerController {
 		return mav;
 		
 		// create memory leak
+		/*
 		for (int i = 0; i < 1000000; i++) {
             list.add(Math.random());
         }
+		*/
 	}
 
 }
