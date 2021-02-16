@@ -6,6 +6,7 @@ INSERT INTO vets VALUES (5, 'Henry', 'Stevens');
 INSERT INTO vets VALUES (6, 'Sharon', 'Jenkins');
 INSERT INTO vets VALUES (7, 'Beat', 'Breu');
 INSERT INTO vets VALUES (8, 'Didier', 'Cuche');
+INSERT INTO vets VALUES (9, 'Mad', 'Max');
 
 INSERT INTO specialties VALUES (1, 'radiology');
 INSERT INTO specialties VALUES (2, 'surgery');
