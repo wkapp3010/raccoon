@@ -34,4 +34,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          procfile: "web: java -Dserver.port=$PORT $JAVA_OPTS -javaagent:/app/newrelic/newrelic.jar -jar target/spring-petclinic-2.4.0.BUILD-SNAPSHOT.jar"
+          procfile: "web: java -Dserver.port=$PORT $JAVA_OPTS -javaagent:newrelic/newrelic.jar -jar target/spring-petclinic-2.4.0.BUILD-SNAPSHOT.jar"
